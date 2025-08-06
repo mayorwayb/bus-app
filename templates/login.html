@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABC Transport Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-sm">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
+      Welcome to ABC<br />Transport
+    </h2>
+    
+    <!-- Flash messages (optional) -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="mb-4 text-red-600">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('login') }}">
+      <label class="block mb-2 text-sm font-medium text-gray-700">Email address</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="you@example.com"
+        required
+        class="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+
+      <label class="block mb-2 text-sm font-medium text-gray-700">Password</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="********"
+        required
+        class="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+
+      <label class="block mb-2 text-sm font-medium text-gray-700">Login as</label>
+      <select
+        name="role"
+        class="w-full px-4 py-2 mb-6 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option value="passenger">Passenger</option>
+        <option value="driver">Driver</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <button
+        type="submit"
+        class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex justify-center items-center space-x-2"
+      >
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Sign In</span>
+      </button>
+    </form>
+
+    <p class="mt-4 text-sm text-center text-gray-600">
+      Don't have an account?
+      <a href="{{ url_for('signup') }}" class="text-blue-600 hover:underline">Sign up</a>
+    </p>
+  </div>
+
+</body>
+</html>

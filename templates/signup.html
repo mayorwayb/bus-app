@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABC Transport Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class="bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen flex items-center justify-center"
+  >
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-sm">
+      <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
+        Create Your ABC Transport Account
+      </h2>
+      <form method="POST" action="/signup">
+        <label class="block mb-2 text-sm font-medium text-gray-700"
+          >Full Name</label
+        >
+        <input
+          type="text"
+          name="full_name"
+          placeholder="John Doe"
+          required
+          class="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <label class="block mb-2 text-sm font-medium text-gray-700"
+          >Email Address</label
+        >
+        <input
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+          class="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <label class="block mb-2 text-sm font-medium text-gray-700"
+          >Phone Number</label
+        >
+        <input
+          type="tel"
+          name="phone"
+          placeholder="08012345678"
+          required
+          class="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <label class="block mb-2 text-sm font-medium text-gray-700"
+          >Password</label
+        >
+        <input
+          type="password"
+          name="password"
+          placeholder="********"
+          required
+          class="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <label class="block mb-2 text-sm font-medium text-gray-700"
+          >Sign up as</label
+        >
+        <select
+          name="role"
+          required
+          class="w-full px-4 py-2 mb-6 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="">Select Role</option>
+          <option value="passenger">Passenger</option>
+          <option value="driver">Driver</option>
+          <option value="admin">Admin</option>
+        </select>
+
+        <button
+          type="submit"
+          class="w-full py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+        >
+          Sign Up
+        </button>
+      </form>
+
+      <p class="text-sm text-center text-gray-600 mt-4">
+        Already have an account?
+        <a href="/login" class="text-blue-500 hover:underline">Log In</a>
+      </p>
+    </div>
+  </body>
+</html>
